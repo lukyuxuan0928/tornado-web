@@ -1,5 +1,7 @@
 import os.path
 import tornado.web
+import wsgiref.simple_server
+import tornado.wsgi
 from handler import *
 
 # join the template and static folder path
@@ -24,10 +26,23 @@ if __name__ == "__main__":
     port = 8888
     
     # Simple startup tornado server
+    '''
     print 'Server Running...'
     print 'Port: ' + str(port)
     app.listen(port)
     tornado.ioloop.IOLoop.instance().start()
+    '''
+
+    # Startup tornado server with wsgi (guinicorn)
+    # Run guinicorn
+    # Command: gunicorn -b 192.168.1.66 api_startup:application
+    application = tornado.wsgi.WSGIAdapter(app)
+
+    # Start the server forever without running command
+    # Method: make_server(bind-ip-address, port , application)
+    server = wsgiref.simple_server.make_server('', port, application)
+    print "Started server with port:" + str(port) + "..."
+    server.serve_forever()
 
 
 
