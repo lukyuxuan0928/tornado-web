@@ -12,8 +12,8 @@ Gunicorn is a Python WSGI HTTP Server for UNIX. It is very simple to configure, 
 
 In order to use these features, you may need to install:
 ```
-1. sudo apt-get install python-tornado
-2. pip install gunicorn
+1. $ sudo apt-get install python-tornado
+2. $ pip install gunicorn
 ```
 ## Example
 
