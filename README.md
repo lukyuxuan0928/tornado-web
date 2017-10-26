@@ -34,7 +34,6 @@ After that, you can either use tornado it-self or gunicorn to start the server
     tornado.ioloop.IOLoop.instance().start()
 ```
 
-
 ### Gunicorn
 
 ```
@@ -49,7 +48,6 @@ Please take note that might minor changes of syntax on different version
 
 ```
     python          == 2.7.12
-    python-requests == 2.9.1
     python-tornado  == 4.2.1
     gunicorn        == 19.7.1
 ```
